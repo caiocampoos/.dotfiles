@@ -31,7 +31,7 @@ command -v zsh | sudo tee -a /etc/shells
 
 #source zsh as defautl shells
 
-sudo chsh -s $(which zsh) caio
+sudo chsh -s $(which zsh) $USER
 
 # bundle zsh plugins
 
