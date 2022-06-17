@@ -3,8 +3,6 @@
   let mapleader = " "
   set termguicolors
   set tabstop=4 
-  set softtabstop=4
-  set shiftwidth=4
   set expandtab
   set smartindent
   set number
@@ -21,18 +19,17 @@
   set nowrap
   set splitbelow
   set splitright
-  set hidden
   set scrolloff=999
-  set noshowmode
   set updatetime=250 
   set encoding=UTF-8
   set mouse=a
-
+  set clipboard=unnamedplus
  " --- Plugins
+
 
   call plug#begin('~/.config/nvim/plugged')
 
- " General
+ "#General
   Plug 'kyazdani42/nvim-web-devicons'                " Devicons
   Plug 'nvim-lualine/lualine.nvim'                   " Status line
   Plug 'akinsho/bufferline.nvim'                     " Buffers
@@ -40,6 +37,8 @@
   Plug 'kyazdani42/nvim-tree.lua'                    " File explorer
   Plug 'folke/tokyonight.nvim', { 'branch': 'main' } " Color scheme
   Plug 'neovim/nvim-lspconfig'     
+  Plug 'ray-x/go.nvim'
+  Plug 'ray-x/guihua.lua'
 
   Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
