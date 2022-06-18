@@ -20,10 +20,11 @@ nix-env -iA \
 	nixpkgs.bat \
 	nixpkgs.direnv \
 
-#stow stuff
+# stow dotfiles
 stow git
-stow zsh
 stow nvim
+stow tmux
+stow zsh
 
 # set up zsh as login shell
 
