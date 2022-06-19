@@ -4,26 +4,49 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-# Export NVM completion settings for zsh-nvm plugin
+
+# Export nvm completion settings for lukechilds/zsh-nvm plugin
+# Note: This must be exported before the plugin is bundled
 export NVM_DIR=${HOME}/.nvm
 export NVM_COMPLETION=true
 
-# source plugins
-source ~/.zsh_plugins.sh
+source ${HOME}/.zsh_plugins.sh
 
-#aliases
-alias ls='ls -al'
+# Bundle zsh plugins via antibody
+alias update-antibody='antibody bundle < $HOME/.zsh_plugins.txt > $HOME/.zsh_plugins.sh'
+# List out all globally installed npm packages
+alias list-npm-globals='npm list -g --depth=0'
+# Adds better handling for `rm` using trash-cli
+# https://github.com/sindresorhus/trash-cli
+# You can empty the trash using the empty-trash command
+# https://github.com/sindresorhus/empty-trash-cli
+alias rm='trash'
+# use neovim instead of vim
 alias vim='nvim'
-#use nix
-if [ -e /home/caio/.nix-profile/etc/profile.d/nix.sh ]; then . /home/caio/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+# open vim config from anywhere
+alias vimrc='vim ${HOME}/.config/nvim/init.vim'
+# cat -> bat
+alias cat='bat'
+# colored ls output
+alias ls='ls -al --color'
+
+# DIRCOLORS (MacOS)
+export CLICOLOR=1
+
+# FZF
+export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
+export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --border --margin=1 --padding=1"
+
+# PATH
+# export PATH=${PATH}:/usr/local/go/bin
+# export PATH=${PATH}:${HOME}/go/bin
+
+export BAT_THEME="gruvbox-dark"
+
+# nix
+if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export GOROOT=/usr/local/go1.18.3
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [ -e /home/caio/.nix-profile/etc/profile.d/nix.sh ]; then . /home/caio/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
