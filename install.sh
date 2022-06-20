@@ -21,6 +21,7 @@ nix-env -iA \
 	nixpkgs.direnv \
 	nixpkgs.gcc \
 	nixpkgs.gnumake \
+    nixpkgs.go \
 
 # stow dotfiles
 stow git
