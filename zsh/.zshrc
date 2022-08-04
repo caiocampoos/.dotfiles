@@ -30,8 +30,12 @@ alias cat='bat'
 # colored ls output
 alias ls='ls -al --color'
 
-# DIRCOLORS (MacOS)
-export CLICOLOR=1
+#dock laptop using i3
+alias dock-laptop='xrandr --output eDP-1 --off'
+
+#undock laptop using i3 
+alias undock-laptop='xrandr --auto'
+
 
 # FZF
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"

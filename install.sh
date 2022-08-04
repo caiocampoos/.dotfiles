@@ -18,7 +18,8 @@ nix-env -iA \
 	nixpkgs.bat \
 	nixpkgs.gnumake \
 	nixpkgs.gcc \
-	nixpkgs.direnv
+	nixpkgs.direnv \
+    nixos.i3
 
 # stow dotfiles
 stow git
