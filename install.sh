@@ -1,4 +1,4 @@
-# install nix
+  nstall nix
 curl -L https://nixos.org/nix/install | sh
 
 # source nix
@@ -19,7 +19,6 @@ nix-env -iA \
 	nixpkgs.gnumake \
 	nixpkgs.gcc \
 	nixpkgs.direnv \
-    nixos.i3
 
 # stow dotfiles
 stow git
