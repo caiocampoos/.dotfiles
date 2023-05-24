@@ -1,7 +1,6 @@
 require("caiocampoos.remap")
-require("caiocampoos.packer")
 require("caiocampoos.set")
-
+require("caiocampoos.packer")
 
 local augroup = vim.api.nvim_create_augroup
 local CaiocampoosGroup = augroup('Caiocampoos', {})
@@ -33,4 +32,3 @@ autocmd({"BufWritePre"}, {
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
-
